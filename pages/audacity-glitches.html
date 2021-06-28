@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=endge, chrome=IE8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
+    <title>anna.computer — pages/audacity-glitches.html</title>
+    <!--[if lte IE 8]><script type="text/javascript" src="/theme/js/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" type="text/css" href="/theme/css/skeleton.css" />
+    <link rel="stylesheet" type="text/css" href="/theme/css/theme.css" />
+    <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
+    <!--[if lte IE 8]><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" /><![endif]-->
+    <link rel="alternate" type="application/atom+xml"
+                           title="anna.computer — Flux Atom"
+                           href="/" /> 
+  </head>
+  <body>
+    <div id="page">
+      <header id="page-head">
+        <h1>
+          <a href="/index.html">anna.computer</a>
+        </h1>
+      </header>
+      
+      <div id="page-body">
+        <section id="page-main" role="main">
+      <h1>Audacity glitches</h1>
+      <h3 id="contents">Contents</h3>
+<ul>
+<li><a href="/pages/audacity-glitches.html#exploring-different-effects">Exploring different effects</a></li>
+<li><a href="/pages/audacity-glitches.html#chopping-or-combining-images">Chopping &amp; Combining images</a></li>
+<li><a href="/pages/glitch-art.html#how-do-you-do-this">How do you do this?</a></li>
+</ul>
+<p>There are many ways to beautifully destroy an image. One of the classical ways is to poke around in the hexadecimal representation of the image and remove and/or replace bytes. <a href="/pages/classical-glitches.html">Code and examples can be found here</a></p>
+<p>Another popular way that is a bit more "advanced" is to load an image (in <code>.bmp</code> or  <code>.tif</code> format) as raw data into audacity and play around with its audio representation, then export it as an image. It is easier to convert to <code>.bmp</code> files, but I find that <code>.tif</code> often has cooler results.</p>
+<h2 id="exploring-different-effects">Exploring different effects</h2>
+<p>This is my input image originally in <code>.tif</code> format. It is me at age 13 taking a picture of some leaves.
+<img src="../images/glitch/small_input.png" alt="unglitched input image of anna taking a picture" width="95%"/></p>
+<h4 id="echo">Echo <!-- omit in toc --></h4>
+<p>This is a moderately large 'echo' applied to a part of the image. It creates sort of an 'image echo'!</p>
+<p><img src="../images/glitch/small_echo.png" alt="echo effect applied" width="95%"/></p>
+<p>This effect is cool to play around with. Especially if you have access to RGB channels separately.</p>
+<h4 id="bass-treble">Bass &amp; Treble<!-- omit in toc --></h4>
+<p>OK, at first I applied bass&amp;treble to only the representation of information about the blues of the image(using RG<strong>B</strong> non-interleaved representation):</p>
+<p><img src="../images/glitch/small_bass-treble-b.png" alt="bass&treble effect applied to the B channel" width="95%"/></p>
+<p>Not too interesting, but applying it to the whole image makes it look pretty cool!</p>
+<p><img src="../images/glitch/small_bass-treble-all.png" alt="bass&treble effect applied" width="95%"/></p>
+<p>What happens if I <strong>turn up the bass</strong> and leave out the treble?</p>
+<p><img src="../images/glitch/small_more-bass-no-treble.png" alt="bass boosted image" width="95%"/></p>
+<p>It looks pretty dreamy. This is a literal bass-boosted image!</p>
+<h4 id="invert-reverse">Invert &amp; Reverse<!-- omit in toc --></h4>
+<p>'Invert' and 'reverse' mean different things, where invert mostly looks like a cheesy effect with somewhat inverted colors:</p>
+<p><img src="../images/glitch/small_invert.png" alt="invert applied" width="95%"/></p>
+<p>Reverse does what it says on the lid, it flips the image. It's hard to get the original colors back.</p>
+<p><img src="../images/glitch/small_switch-everything.png" alt="reverse effect on all channels" width="95%"/></p>
+<p>We can also apply 'reverse' to just one channel. In this case I chose the green channel. Now we have two Anna's. Looks pretty cool.</p>
+<p><img src="../images/glitch/small_switch-green.png" alt="reverse effect on the G channel" width="95%"/></p>
+<h4 id="reverb">Reverb<!-- omit in toc --></h4>
+<p>Reverb does somehow not create an echo-y effect on the image as in <a href="#echo">echo</a>.</p>
+<p><img src="../images/glitch/small_reverb-bit.png" alt="" width="95%"/></p>
+<p>It does give off a different vibe when you apply it to one channel only. I like it.</p>
+<p><img src="../images/glitch/small_reverb-green.png" alt="" width="95%"/></p>
+<h4 id="pitch-change">Pitch Change<!-- omit in toc --></h4>
+<p>This was my favourite effect so far! The colours are nice and yet it feels like a more analog glitch, such as scanning an image while shaking it.</p>
+<p><img src="../images/glitch/small_pitch-change.png" alt="" width="95%"/></p>
+<h2 id="chopping-or-combining-images">Chopping or Combining images</h2>
+<p>Some effects, such as tempo changes and pitch changes, can affect the overall length of the file, which is something to be careful with - it can break your image to the point that it is unreadable by any image viewer.</p>
+<p>But some image info can be deleted! As long as we make sure that headers at the beginning of the file (and the beginning of RGB parts of the file, if you work with this encoding) are intact, you have some freedom in regards to deletion.</p>
+<p>This is what happens when we delete a big chunk in the middle of the <code>.tif</code> file:
+<img src="../images/glitch/small_delete-middle-part.png" alt="" width="95%"/></p>
+<p>And if we cut out multiple small chunks and repeat some chunks, it becomes even more colorful:
+<img src="../images/glitch/small_bits-missing.png" alt="" width="95%"/></p>
+<p>We can even combine multiple files this way. Usually, it is not interesting to merge two tracks into one, but you can chop up both files and then combine them. I am using two new images here, one of me with a flower, and one of a flower, and recombining the two with audacity.</p>
+<p>These are the two 'halves' of this sort-of genetic recombination:</p>
+<p><img src="../images/glitch/small_annaflower1.png" alt="" width="48%"/>
+<img src="../images/glitch/small_annaflower2.png" alt="" width="48%"/></p>
+<h2 id="how-do-you-do-this">How do you do this?</h2>
+<p>There are a lot of good guides online - for instance <a href="https://questionsomething.wordpress.com/2012/07/26/databending-using-audacity-effects/">this one</a>. Here's a summary:
+1. pick any image file!
+2. convert it to <code>*.tif</code> or <code>*.bmp</code> using your favourite image editor program, such as gimp. if you choose <code>*.tif</code>, it is better to convert it per channel (select: non interleaved or RRGGBB)
+3. click import raw data in audacity and select your file
+4. from the menu that pops up, choose u-law (or a-law) from the menu that pops up. also select mono instead of stereo. leave the rest as is.
+5. ~~enjoy your harsh noise~~ apply your effects, but don’t touch the very first bit of the data, and make sure that the length of the file stays the same!
+6. export your file as <code>.tif</code> and enjoy. (make sure to select "other uncompressed files", select RAW(headerless) and u-law encoding)</p>
+<h2 id="final-note">~~Final note~~<!-- omit in toc --></h2>
+<p>~~This page is based my own <a href="https://sonderbalance.wordpress.com/2016/09/25/an-audacity-journey/">blog post</a> I made back in 2016.~~</p>
+      </section> <!-- /#page-main -->
+
+        <aside id="page-side">
+          <!-- begin includes/sidebar.html -->
+          <nav>
+            <a style="font-size:200%;" href="/index.html">🏠</a><a href="/index.html">Home</a>
+            <h3>Pages</h3>
+            <ul>
+              <!-- <li><a href="/index.html">Home</a></li> -->
+              <li><a href="/pages/glitch-art.html">Glitch (Art)</a></li>
+              <li><a href="/pages/who-am-i.html">Who am I?</a></li>
+             <li><a href="/categories.html">All Categories</a></li> 
+             <!--<li><a href="/archives.html">All posts</a></li> -->
+            </ul>
+          </nav>
+
+
+          <nav>
+            <h3>Links</h3>
+            <ul>
+              <li><a href="http://www.github.com/annaproxy">Github</a></li>
+              <li><a href="http://www.gitlab.com/annaproxy">Gitlab</a></li>
+            </ul>
+          </nav>
+          <!-- end includes/sidebar.html --></aside> <!-- /#page-side -->
+      </div>  <!-- /#page-body -->
+
+      <footer id="page-foot">
+        <p> <a href="http://pelican.readthedocs.org">pelican</a></p>
+      </footer>
+    </div> <!-- /#page -->
+  </body>
+</html>
