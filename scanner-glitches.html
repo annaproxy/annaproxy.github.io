@@ -2,10 +2,10 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
+      <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=endge, chrome=IE8" />
   <meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no" />
-  <title>anna.computer — pages/about-me.html</title>
+  <title>Scanner "glitches" — anna.computer</title>
   <!--[if lte IE 8]><script type="text/javascript" src="/theme/js/html5shiv.js"></script><![endif]-->
   <link rel="stylesheet" type="text/css" href="/theme/css/skeleton.css" />
   <link rel="stylesheet" type="text/css" href="/theme/css/theme.css" />
@@ -13,6 +13,10 @@
   <!--[if lte IE 8]><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" /><![endif]-->
   <link rel="alternate" type="application/atom+xml" title="anna.computer — Flux Atom"
     href="/" />
+
+    <meta name="author"   content="anna" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" media="not print" type="text/css" href="/theme/css/pygments.css" /> 
 </head>
 
 <body>
@@ -24,15 +28,35 @@
     </header>
 
     <div id="page-body">
-      <section id="page-main" role="main">
-      <h1>About me</h1>
-      <p>I am currently a master student at two programmes: Artificial Intelligence at the University of Amsterdam and Computing Science at the University of Utrecht.
-Before that I completed my bachelor in Artificial Intelligence at the University of Utrecht.</p>
-<h3 id="contact">Contact</h3>
-<p>You can e-mail me at <code>(\x -&gt; x@anna.computer)(anna)</code></p>
-<h3 id="fun-facts">Fun facts</h3>
-<p><a href="/pages/courses.html">Here is an unordered list of all courses I have taken at university.</a></p>
-      </section> <!-- /#page-main -->
+      <article class="post" id="page-main" role="main">
+      <header class="post-header">
+        <h1>
+          <a rel="bookmark"
+             href="/scanner-glitches.html"
+             title="Lien permanent vers «Scanner "glitches"»">
+             Scanner "glitches"
+          </a>
+        </h1>
+        <div class="meta">
+<!-- includes/article_meta.html -->
+            <time datetime="2021-05-20T00:00:00+02:00">Thu 20 May 2021</time> in
+            <a href="/category/glitch.html">Glitch</a>        </div>
+      </header>
+      <div class="post-content"> 
+        <p>I scanned in some images and while scanning tried to distort them in this "analog glitch" manner. </p>
+<p>Check it out: </p>
+<p><img src="../images/glitch/small_scan1.png" alt="glitched image" width="90%"/></p>
+<p><img src="../images/glitch/small_scan3.png" alt="glitched image" width="90%"/></p>
+<p>Rotating is also fun:</p>
+<p><img src="../images/glitch/small_scan2.png" alt="glitched image" width="90%"/></p>
+      </div>
+      <footer class="post-footer">
+        <div class="meta">
+            Category: «<a href="/category/glitch.html">Glitch</a>» 
+            <!-- Tags:  -->
+        </div>
+      </footer>
+      </article> <!-- /#page-main -->
 
       <aside id="page-side">
           <!-- begin includes/sidebar.html -->
@@ -41,7 +65,7 @@ Before that I completed my bachelor in Artificial Intelligence at the University
             <h3>Pages</h3>
             <ul>
               <!-- <li><a href="/index.html">Home</a></li> -->
-              <li><a href="/pages/about-me.html" class="active">About me</a></li>
+              <li><a href="/pages/about-me.html">About me</a></li>
             <!-- <li><a href="/categories.html">All Categories</a></li> -->
              <!--<li><a href="/archives.html">All posts</a></li> -->
             </ul>
@@ -50,7 +74,7 @@ Before that I completed my bachelor in Artificial Intelligence at the University
           <nav>
             <h3>Categories</h3>
             <ul>
-              <li><a href="/category/glitch.html">Glitch</a></li>
+              <li class="active"><a href="/category/glitch.html">Glitch</a></li>
             </ul>
           </nav>
 

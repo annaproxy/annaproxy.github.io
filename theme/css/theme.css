@@ -27,6 +27,7 @@ body {
     float:right;
     width: 80px;
     margin-right:100px;
+    margin-bottom:20px;
     background-position:center;
     background-repeat: no-repeat;
     background: linear-gradient(rgb(0,0,0), rgb(7,100,100));
